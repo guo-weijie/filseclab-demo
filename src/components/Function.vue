@@ -10,21 +10,34 @@
       </div>
     </div>
     <div class="more">
-      <a href="javascript:;">了解更多</a>
-      |
+      <a v-if="more" href="javascript:;" @click="aaa" >了解更多 | </a>
       <a href="http://filseclab.com/documents/twister8tech_zh-cn.pdf">技术文档</a>
     </div>
   </div>
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
 export default {
   props: {
     fnData: {
       type: Array,
       default: () => [],
     },
+    more:{
+      type: Boolean,
+      default: () => false
+    }
   },
+  setup(){
+    const router = useRouter()
+    const aaa=()=>{
+      router.push('/product')
+    }
+    return {
+      aaa
+    }
+  }
 };
 </script>
 
@@ -32,12 +45,12 @@ export default {
 .function {
   width: 12rem;
   margin: auto;
-  margin-top: .8rem;
+  // margin-top: .8rem;
 }
 .fnInfo{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     font-size: 0;
@@ -59,8 +72,13 @@ export default {
             color: #333;
         }
         .desc{
-            font-size: .12rem;
-            color: #7d7d7d;
+          display: -webkit-box;
+          width: 90%;
+          font-size: .12rem;
+          color: #7d7d7d;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
         }
     }
 }
@@ -68,7 +86,7 @@ export default {
     color: #464646;
     font-size: .14rem;
     text-align: right;
-    margin-bottom: .7rem;
+    margin-bottom: .5rem;
     a{
         color: #e87f00;
     }

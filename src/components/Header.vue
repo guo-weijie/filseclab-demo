@@ -6,12 +6,12 @@
         <img src="http://filseclab.com/images/logo_zh-cn.png" alt="" />
       </a>
       <!-- 右侧导航 -->
-      <el-menu v-if="state==='pc'" :default-active="activeIndex" mode="horizontal" text-color='#464646' active-text-color='#898989'>
-        <el-menu-item index="1">首页</el-menu-item>
-        <el-menu-item index="2">产品</el-menu-item>
-        <el-menu-item index="3">下载</el-menu-item>
-        <el-menu-item index="4">支持</el-menu-item>
-        <el-menu-item index="5">论坛</el-menu-item>
+      <el-menu v-if="state==='pc'" :default-active="activeIndex" mode="horizontal" text-color='#464646' active-text-color='#898989' router>
+        <el-menu-item index="home">首页</el-menu-item>
+        <el-menu-item index="product">产品</el-menu-item>
+        <el-menu-item index="download">下载</el-menu-item>
+        <el-menu-item index="support">支持</el-menu-item>
+        <el-menu-item index="forum">论坛</el-menu-item>
       </el-menu>
     </div>
   </div>
@@ -19,11 +19,16 @@
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
+import { useRoute } from 'vue-router'
 export default {
   setup() {
     const state = computed(() => useStore().state.client);
-    const activeIndex = ref('1')
+    const activeIndex = ref('home')
+    const route = useRoute()
+    watch(()=>route.path,()=>{
+      activeIndex.value!==route.path.substring(1)?activeIndex.value=route.path.substring(1):null
+    })
     return {
       state,
       activeIndex

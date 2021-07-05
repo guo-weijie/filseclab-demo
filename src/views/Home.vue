@@ -20,7 +20,7 @@
     </el-carousel-item>
   </el-carousel>
   <!-- 产品功能 -->
-  <Function :fnData='fnData' />
+  <Function :fnData='fnData' more />
   <!-- 新闻动态 -->
   <News :newsList='newsList' :updateLog='updateLog' />
 </template>
@@ -183,5 +183,8 @@ export default {
   h3{
     font-size: .22rem;
   }
+}
+.el-carousel{
+  margin-bottom: .8rem;
 }
 </style>
