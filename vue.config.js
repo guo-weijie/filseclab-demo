@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/filseclab-demo/'
+    publicPath: process.env.NODE_ENV === 'production'?'/filseclab-demo/':'/'
 }

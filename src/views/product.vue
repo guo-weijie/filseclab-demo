@@ -26,17 +26,58 @@
       <div class="what">
         <h4>什么是 费尔智能杀毒？</h4>
         <el-divider></el-divider>
-        <p>费尔智能杀毒8是费尔历时长达5年精心打造的以智能为核心的新一代反病毒产品（原名：费尔托斯特安全），30余项技术突破与革新，集主动防御、虚拟机、启发、基因、黑盒、回滚、云安全等几乎所有当前一流安全技术于一身，拥有强大的防御能力。令人惊奇的精准回滚，震撼的多媒体动画交互界面和语音控制将带给您与众不同的使用体验。</p>
+        <p class="mb">费尔智能杀毒8是费尔历时长达5年精心打造的以智能为核心的新一代反病毒产品（原名：费尔托斯特安全），30余项技术突破与革新，集主动防御、虚拟机、启发、基因、黑盒、回滚、云安全等几乎所有当前一流安全技术于一身，拥有强大的防御能力。令人惊奇的精准回滚，震撼的多媒体动画交互界面和语音控制将带给您与众不同的使用体验。</p>
         <h4>功能亮点</h4>
         <el-divider></el-divider>
         <Function :fnData='fnData' />
         <h4>曾或荣誉</h4>
         <el-divider></el-divider>
-        <div>
-          <el-image v-for="(item,index) in showImgData" :src="item.url" fit="none" :key="index"></el-image>
+        <div class="mb">
+          <el-image v-for="(item,index) in showImgData.obj" :src="item.url" fit="none" :key="index"></el-image>
           <div class="more">
-            <span @click="moreImgData">更多荣誉...</span>
+            <span @click="moreImgData">{{btnText}}</span>
           </div>
+        </div>
+        <h4>媒体评价</h4>
+        <el-divider></el-divider>
+        <div class="vb" v-pre>
+          <p>Filseclab is the perennial battler, detection rates were pretty decent, with good levels in the response sets and a good start to the RAPs too, earning the product a 'solid' rating.</p>
+          <p>(整体评价) 费尔是一个常年参与测试的斗士，它对恶意样本集一直拥有相当高的检出率，并且在RAPs(新威胁)测试中也有非常好的表现，所以它赢得了“稳固”的评级。</p>
+          <p>Well, it's still doing great considering it's only heuristics and no signatures. It seems to be detecting over 60% of our samples - better than some signature scanners!</p>
+          <p>(纯启发评价) 在没有病毒库仅靠启发的情况下它的表现依然很棒，在我们的恶意样本集中它的检出率超过了60%(几乎没有误报)，这甚至要好过某些特征码引擎。</p>
+          <div class="speaker">
+            - 英国VB100评测
+            <img src="http://filseclab.com/images/award_vb.png" alt="">
+          </div>
+        </div>
+        <div class="vb" v-pre>
+          <p>Your program software are well known and it's for that reason we would like to have a full version for our readers. Twister Antivirus will be interesting program, we will include you program in the CD-ROM magazine, with a space on the covermount CD and on the cover also.</p>
+          <p>你们的软件很有名望，正是这个原因我们希望获得一个完整的版本，以提供给我们的读者使用。费尔杀毒软件让人很感兴趣，我们将在杂志的光盘和封面上刊登你们的程序。</p>
+          <div class="speaker">
+            - HAKIN9.ORG
+            <img src="http://filseclab.com/images/media_hakin9c.jpg" alt="">
+            <img src="http://filseclab.com/images/award_hakin9.png" alt="">
+          </div>
+        </div>
+        <h4>用户评价</h4>
+        <el-divider></el-divider>
+        <div class="vb" v-pre>
+          <p>I can not stop talking to my friends how pleased I am with Twister. Before I decided to try your product, I tried Norton, Avast, McAfee, Kaspersky, and I do not remember a couple others more which. I tried them on a badly infected computer. At the last I gave Twister a try and found another 12 Trojans/virus left over after all the other programs finished scanning and repairing the computer. That was enough for me to buy 3 twisters.</p>
+          <p>我无法停止向我的朋友炫耀我拥有费尔杀毒。在我决定尝试你们的产品之前，我尝试了诺顿、Avast、McAfee、卡巴斯基，和更多我已经记不清的杀毒软件。我在一个被严重感染的电脑中尝试它们，随后我尝试了费尔，它又发现了其他所有杀毒软件都没有发现的12个木马/病毒并且修复了我的电脑，这就足够让我买了3套费尔。</p>
+          <div class="speaker">
+            - John Papazoglou
+          </div>
+        </div>
+        <h4>分享</h4>
+        <el-divider></el-divider>
+        <div class="share">
+          <div class="shareBtn">
+            <a href="http://filseclab.com/zh-cn/products/twister.htm#"></a>
+            <a href="http://filseclab.com/zh-cn/products/twister.htm#"></a>
+            <a href="http://filseclab.com/zh-cn/products/twister.htm#"></a>
+            <a href="http://filseclab.com/zh-cn/products/twister.htm#"></a>
+          </div>
+          <span class="desc">* 1年/1电脑授权：是指您有权在1台电脑上安装使用本产品，并且从第一次激活开始起1年内有效。有效期内您可以持续获得产品的数据更新和功能更新，在整个服务期间内您需要接受费尔产品的使用许可协议。产品的功能在服务期间可能会被添加，修改，或删除。</span>
         </div>
       </div>
     </div>
@@ -45,7 +86,7 @@
 
 <script>
 import Function from '@/components/Function.vue'
-import { reactive } from '@vue/reactivity';
+import { reactive, ref } from '@vue/reactivity';
 export default {
   name: "Product",
   components:{
@@ -186,17 +227,21 @@ export default {
     },{
       url: 'http://filseclab.com/images/award_pcsl_may09.gif'
     }]
-    let showImgData = reactive(imgData.slice(0,7))
+    let showImgData = reactive({
+      obj:imgData.slice(0,7)
+    })
     const moreImgData = () =>{
-      showImgData=showImgData.length!==imgData.length?imgData:imgData.slice(0,7)
-      console.log(showImgData);
+      showImgData.obj=showImgData.obj.length!==imgData.length?imgData:imgData.slice(0,7)
+      btnText.value=btnText.value==='更多荣誉...'?'收起⬆':'更多荣誉...'
     }
+    const btnText = ref('更多荣誉...')
     return {
       flash,
       desc,
       fnData,
       showImgData,
-      moreImgData
+      moreImgData,
+      btnText
     };
   },
 };
@@ -258,7 +303,6 @@ export default {
   }
   p{
     font-size: .16rem;
-    margin-bottom: .6rem;
   }
   .el-image{
     margin-left: .15rem;
@@ -271,5 +315,66 @@ export default {
       cursor: pointer;
     }
   }
+  .vb{
+    padding-left: .35rem;
+    background: url(http://filseclab.com/images/quote_l.gif) no-repeat left top/.24rem;
+    p{
+      font-size: .12rem;
+      color: #464646;
+      line-height: .2rem;
+      &:nth-of-type(2){
+        margin-bottom: .1rem;
+      }
+    }
+    .speaker{
+      // height: .48rem;
+      // line-height: .48rem;
+      font-size: .12rem;
+      color: #7d7d7d;
+      text-align: right;
+      margin-bottom: .2rem;
+      img{
+        // height: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+  .share{
+    .shareBtn{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: .2rem;
+    }
+    a{
+      display: block;
+      width: .37rem;
+      height: .37rem;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 97%;
+      background-image: url(http://bdimg.share.baidu.com/static/images/is_32.png?cdnversion=20131219);
+      margin-right: .1rem;
+      &:nth-of-type(1){
+        background-position: 0 -75px;
+      }
+      &:nth-of-type(2){
+        background-position: 0 -115px;
+      }
+      &:nth-of-type(3){
+        background-position: 0 -235px;
+      }
+      &:nth-of-type(4){
+        background-position: 0 -195px;
+      }
+    }
+    .desc{
+      font-size: .12rem;
+      color: #7d7d7d;
+    }
+  }
+}
+.mb{
+  margin-bottom: .6rem;
 }
 </style>
