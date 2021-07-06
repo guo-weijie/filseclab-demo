@@ -71,12 +71,7 @@
         <h4>分享</h4>
         <el-divider></el-divider>
         <div class="share">
-          <div class="shareBtn">
-            <a href="http://filseclab.com/zh-cn/products/twister.htm#"></a>
-            <a href="http://filseclab.com/zh-cn/products/twister.htm#"></a>
-            <a href="http://filseclab.com/zh-cn/products/twister.htm#"></a>
-            <a href="http://filseclab.com/zh-cn/products/twister.htm#"></a>
-          </div>
+          <Share></Share>
           <span class="desc">* 1年/1电脑授权：是指您有权在1台电脑上安装使用本产品，并且从第一次激活开始起1年内有效。有效期内您可以持续获得产品的数据更新和功能更新，在整个服务期间内您需要接受费尔产品的使用许可协议。产品的功能在服务期间可能会被添加，修改，或删除。</span>
         </div>
       </div>
@@ -86,11 +81,13 @@
 
 <script>
 import Function from '@/components/Function.vue'
+import Share from '@/components/Share.vue'
 import { reactive, ref } from '@vue/reactivity';
 export default {
   name: "Product",
   components:{
-    Function
+    Function,
+    Share
   },
   setup() {
     const flash = [
@@ -340,34 +337,6 @@ export default {
     }
   }
   .share{
-    .shareBtn{
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin-bottom: .2rem;
-    }
-    a{
-      display: block;
-      width: .37rem;
-      height: .37rem;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 97%;
-      background-image: url(http://bdimg.share.baidu.com/static/images/is_32.png?cdnversion=20131219);
-      margin-right: .1rem;
-      &:nth-of-type(1){
-        background-position: 0 -75px;
-      }
-      &:nth-of-type(2){
-        background-position: 0 -115px;
-      }
-      &:nth-of-type(3){
-        background-position: 0 -235px;
-      }
-      &:nth-of-type(4){
-        background-position: 0 -195px;
-      }
-    }
     .desc{
       font-size: .12rem;
       color: #7d7d7d;
