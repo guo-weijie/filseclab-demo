@@ -66,11 +66,10 @@ export default {
   .container{
     font-size: 0;
     box-sizing: border-box;
-    padding-top: .15rem;
+    padding: .2rem .1rem;
     a{
-      margin-left: .2rem;
       img{
-        width: 2.47rem;
+        width: 2.5rem;
       }
     }
   }
